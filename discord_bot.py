@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 import os
 import openai
 
-# Load environment variables
 load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN") 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -16,7 +15,6 @@ if OPENAI_API_KEY is None:
 
 openai.api_key = OPENAI_API_KEY
 
-# Initialize bot with intents
 intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
@@ -103,8 +101,7 @@ async def help(ctx):
     )
     await ctx.send(help)
 
-# Chatbot integration with OpenAI
-
+#chatgpt integration
 def chat_with_gpt(prompt):
     try:
         if not openai.api_key:
